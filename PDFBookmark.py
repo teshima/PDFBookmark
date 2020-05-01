@@ -1,15 +1,19 @@
 import sys
+from typing import List, Any, Union
+
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import argparse
 import csv
 
+from PyPDF2.generic import IndirectObject
+
 parser = argparse.ArgumentParser( prog='PDFBookmark' )
 parser.add_argument('bookmark_txt', help='bookmark text filename', \
-                    type=argparse.FileType('r') )
+                    type=argparse.FileType('rt') )
 parser.add_argument('input_pdf_filename', help='input PDF filename', \
-                    type=argparse.FileType('r') )
+                    type=argparse.FileType('rb') )
 parser.add_argument('output_pdf_filename', help='output pdf filename', \
-                    type=argparse.FileType('r'))
+                    type=argparse.FileType('wb'))
 parser.add_argument('-p', '--page_bias',  help='page bias', type=int )
 args = parser.parse_args()
 
@@ -38,7 +42,7 @@ for row in bookmarkCSV :
 
     if depth == len( upper_parents ) - 1 :
         # Upper depth
-        if prev_depth == 0 :
+        if len( upper_parents ) == 0 :
             # Cannot go upper more
             print("Cannot go lower more : ",bookmarkCSV.line_num )
         current_parent = upper_parents.pop()
