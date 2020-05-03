@@ -14,7 +14,7 @@ parser.add_argument('input_pdf_filename', help='input PDF filename', \
                     type=argparse.FileType('rb') )
 parser.add_argument('output_pdf_filename', help='output pdf filename', \
                     type=argparse.FileType('wb'))
-parser.add_argument('-p', '--page_bias',  help='page bias', type=int, default=0 )
+parser.add_argument('-p', '--page_bias',  help="Where page number in PDF file is in page number '1' in the book", type=int, default=1 )
 args = parser.parse_args()
 
 pdfReader = PdfFileReader( args.input_pdf_filename )
@@ -27,7 +27,7 @@ bookmarkCSV = csv.reader( args.bookmark_txt, delimiter='\t' )
 upper_parents = [  ]
 prev_bookmark = None
 current_parent = None
-page_bias = args.page_bias
+page_bias = args.page_bias - 1
 
 for row in bookmarkCSV :
     pageNumber = int( row[ 0 ] ) + page_bias
