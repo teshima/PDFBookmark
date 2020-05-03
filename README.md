@@ -2,7 +2,7 @@
 # Purpose
 This script adds bookmarks of CSV format to PDF file.
 
-Original PDF file is not changed, but only new one is created and bookmarks is added to it.
+Original PDF file is not changed, but new one is created and bookmarks is added to it.
 
 # Command line arguments
 PDFBookmark.py *csv_filename Original_PDF_filename New_PDF_filenam*e 
