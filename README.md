@@ -11,8 +11,9 @@ pip install PyPDF2
 # Command line arguments
 PDFBookmark.py *csv_filename Original_PDF_filename New_PDF_filenam*e 
 
-Option "-p *page_number*" is page bias. If page number "1" in a book does't exist in page "1" 
-in the PDF file. The page number of that option indicates where that page "1" in the book is.
+Option "-p *page_number*" is page bias. 
+If page number "1" in PDf is not same as that of the book, 
+then you should tell by this option, where page number "1" is in PDF.
 
 
 # CSV format of bookmark file
