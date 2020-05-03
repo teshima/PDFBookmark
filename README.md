@@ -31,8 +31,9 @@ Root level bookmark needs only one tab for splitting from its page number.
  "Ch 1.1" is second level bookmark folded by "Ch 1". So it needs 2 tabs after 
  its page number. And "Ch 1.1.1" is third level bookmark and needs 3 tabs, so on.
  
- It must be 1 plus/minus or same tabbing from previous line tabbing.
-If there is more than 1 plus/minus tabbing, then this script would shows error and be terminated.
+ To go lower level than previous must be only 1 plus. 
+ If more than 1 plus tab, then the script would shows error and be terminated.
+ 
  ```
 1   Context
 2   Preface 
